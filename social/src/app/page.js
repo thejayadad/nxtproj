@@ -1,15 +1,26 @@
 import Image from 'next/image'
-import { posts } from '@/lib/data'
 
 import PostCard from '@/components/PostCard'
 
-export default function Home() {
+
+export async function fetchPosts(){
+  const res = await fetch('http://localhost:3000/api/post', {cache: 'no-store'})
+
+  return res.json()
+}
+
+export default async function Home() {
+
+  const posts = await fetchPosts()
   return (
     <main>
-      <h2>Social Site</h2>
-    {posts.map((post) => (
-      <PostCard key={post.desc} post={post} />
-    ))}
+      {posts?.length > 0 && <h2>Social Site</h2>}
+     <div>
+      {posts?.length > 0 
+       ? posts.map((post) => (
+        <PostCard key={post._id} post={post}/>
+      )) : <h3>No postse</h3>}
+     </div>
     </main>
   )
 }
