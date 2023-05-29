@@ -1,8 +1,17 @@
-import React from 'react'
+'use client'
+import Image from 'next/image'
 import Link from 'next/link'
+import React, { useState } from 'react'
+
+import {signIn, signOut, useSession} from 'next-auth/react'
+
 
 const Navbar = () => {
-    const loggedIn = true
+    const {data: session} = useSession()
+
+
+
+    const loggedIn = false
   return (
     <header>
         <nav>
@@ -10,19 +19,19 @@ const Navbar = () => {
 
             <ul>
                 {
-                    loggedIn?
-                    (
+                 session?.user
+                    ? (
                         <>
-                    <li>Welcome: Username</li>
+                    <li>Welcome</li>
                     <li>
-                        <buton>Logout</buton>
+                    <buton onClick={() => {signOut()}}>Logout</buton>
                     </li>
                     </>
                     )
                     :
                     (
                         <>
-                       <li><button>LogIn</button></li>
+                       <li><Link href="/login">Login</Link></li>
                        <li><Link href="/register">Register</Link></li>
                        </>
                     )

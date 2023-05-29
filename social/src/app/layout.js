@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
+import Provider from '@/SessionProvider'
+
 
 export const metadata = {
   title: 'Social Site',
@@ -13,9 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Footer />
+      <Provider>
+          <Navbar />
+          {children}
+          <Footer />
+        </Provider>
         </body>
     </html>
   )
