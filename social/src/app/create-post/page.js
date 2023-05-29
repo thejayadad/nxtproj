@@ -7,8 +7,9 @@ import { useSession } from 'next-auth/react'
 import { AiOutlineFileImage } from 'react-icons/ai'
 import { ToastContainer, toast } from 'react-toastify'
 
+
 const CreatePost = () => {
-    const CLOUD_NAME = 'dimum56on'
+    const CLOUD_NAME = 'socialsite'
     const UPLOAD_PRESET = 'social_site'
     const [desc, setDesc] = useState('')
     const [photo, setPhoto] = useState('')
@@ -88,11 +89,8 @@ const CreatePost = () => {
         <h2>Create Post Page</h2>
         <form onSubmit={handleSubmit}>
         <textarea placeholder='Description...' onChange={(e) => setDesc(e.target.value)} />
-        <label htmlFor='image'>
-           <AiOutlineFileImage />
-        </label>
         <input id='image' type="file"  onChange={(e) => setPhoto(e.target.files[0])} />
-        <button >Create</button>
+        <button>Create</button>
         </form>
         <ToastContainer />
 

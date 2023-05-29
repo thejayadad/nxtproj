@@ -22,7 +22,8 @@ const Navbar = () => {
                  session?.user
                     ? (
                         <>
-                    <li>Welcome</li>
+                    <li>Welcome {session.user.email}</li>
+                    <li><Link href="/create-post">Create Post</Link></li>
                     <li>
                     <buton onClick={() => {signOut()}}>Logout</buton>
                     </li>
