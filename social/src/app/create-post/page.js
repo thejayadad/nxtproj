@@ -86,12 +86,23 @@ const CreatePost = () => {
 
   return (
     <div>
-        <h2>Create Post Page</h2>
+        <h2 className='text-center mt-3 text-6xl'>Create Post</h2>
+        <div className='max-w-lg w-[90%] p-6 absolute top-56 left-[50%] translate-x-[-50%] bg-white border-2 rounded-md shadow-md'>
         <form onSubmit={handleSubmit}>
-        <textarea placeholder='Description...' onChange={(e) => setDesc(e.target.value)} />
-        <input id='image' type="file"  onChange={(e) => setPhoto(e.target.files[0])} />
-        <button>Create</button>
+        <textarea  placeholder='Share Your Thoughts!' onChange={(e) => setDesc(e.target.value)} className="m-4 border-none text-center w-full focus:ring-0"/>
+        <div className="flex flex-col justify-center items-center h-[100%]">
+        <label htmlFor='image'>
+                 Upload Image 
+          
+                    </label>
+        </div>
+        <input style={{ display: 'none' }} id='image' type="file"  onChange={(e) => setPhoto(e.target.files[0])} />
+        <button 
+        className="w-full bg-red-600 text-white p-2 mt-4 shadow-md hover:brightness-125 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:hover:brightness-100"
+      
+       >Create</button>
         </form>
+        </div>
         <ToastContainer />
 
     </div>

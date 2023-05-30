@@ -13,14 +13,14 @@ export default async function Home() {
 
   const posts = await fetchPosts()
   return (
-    <main>
+    <section className='max-w-screen-sm m-auto'>
       {posts?.length > 0 && <h2>Social Site</h2>}
-     <div>
+     <div>  
       {posts?.length > 0 
        ? posts.map((post) => (
         <PostCard key={post._id} post={post}/>
-      )) : <h3>No postse</h3>}
+      )) : <h3>No posts</h3>}
      </div>
-    </main>
+    </section>
   )
 }

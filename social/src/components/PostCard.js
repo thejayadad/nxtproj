@@ -39,24 +39,30 @@ const PostCard = ({post: { desc, imageUrl, likes, authorId, _id }}) => {
           }
         } catch (error) {
           console.log(error)
-        }
+        }   
       }
 
 
   return (
-    <div>
+    <div className="bg-white my-7 border rounded-md">
+        <div className='border-b'>
+            <p className="font-bold flex-1 p-3">{authorId.username}</p>
+        </div>
         <Link href={`/post/${_id}`}>
-            <Image alt="post Image" height="150" width="200" src={imageUrl} />
+            <Image alt="post Image" height="150" width="200" className="object-cover w-full" src={imageUrl} />
         </Link>
+        <div className="flex items-center justify-between px-4 pt-4">
+        <div className="flex items-center">
+        <span className=''>{postLikes}</span>{" "}{
+                isLiked ? (<AiFillLike  size={20} />)
+                : (<AiOutlineLike  size={20} />)
+            } 
+        </div>
+        </div>
         <div>
             <h3>{desc}</h3>
         </div>
-        <div>
-            {postLikes}{" "}{
-                isLiked ? (<AiFillLike  size={20} />)
-                : (<AiOutlineLike  size={20} />)
-            }
-        </div>
+    
 
     </div>
   )

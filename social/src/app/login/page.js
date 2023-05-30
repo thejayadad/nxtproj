@@ -40,16 +40,22 @@ const Login = () => {
 
     return (
         <div >
-            <div >
-                <h2>Log In</h2>
-                <form onSubmit={handleSubmit}>
-                    <input type="email" placeholder='Email...' onChange={(e) => setEmail(e.target.value)} />
-                    <input type="password" placeholder='Password...' onChange={(e) => setPassword(e.target.value)} />
-                    <button >Log in</button>
+        <h2 className='text-center mt-3 text-6xl'>Login</h2>
+        <div className='max-w-lg w-[90%] p-6 absolute top-56 left-[50%] translate-x-[-50%] bg-white border-2 rounded-md shadow-md'>
+        <div className="flex flex-col justify-center items-center h-[100%]">
+
+                <form className='flex flex-col' onSubmit={handleSubmit}>
+                   
+                    <input className='mb-3 p-3' type="email" placeholder='Email...' onChange={(e) => setEmail(e.target.value)} />
+                    <input className='mb-3 p-3' type="password" placeholder='Password...' onChange={(e) => setPassword(e.target.value)} />
+                    <button 
+                    className="w-full bg-green-600 text-white p-2 mt-4 shadow-md hover:brightness-125 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:hover:brightness-100"
+                    >Log in</button>
                     <Link  href='/register'>
                         Don&apos;t have an account? <br /> Register now.
                     </Link>
                 </form>
+                </div>
             </div>
             <ToastContainer />
         </div>
